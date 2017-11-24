@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>COIMA.com</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"
+          integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <style type="text/css">
+    </style>
+
+</head>
+<body>
+
+<form action="/action_page.php" id="carform">
+    Firstname:<input type="text" name="fname">
+    <input type="submit">
+</form>
+
+
+
+    <div class="form-group">
+        <label for="sel1">Select list (select one):</label>
+        <select class="form-control" id="sel1">
+{{#each collections}}
+    <option>collections.</option>
+{{/each}}
+        </select>
+        <br>
+    </div>
+
+    <button type="button" action="/collection/sel1" class="btn btn-danger">Danger</button>
+
+</form>
+
+</body>
+</html>
