@@ -1,10 +1,11 @@
+/*
 'use strict'
 var nano = require('nano')('http://localhost:5984');
 var couch = nano.db.use('moviedb');
 const fs = require('fs')
 /**
  * Array of User objects
- */
+
 
 module.exports = {
     'findUser': findUser,
@@ -35,4 +36,4 @@ function authenticate(username, password, cb) {
 // Save the user database
 function save() {
     fs.writeFile('./data/usersDb.json', JSON.stringify(dbUsers))
-}
+}*/
