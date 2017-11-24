@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>COIMA.com</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"
+          integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <style type="text/css">
+
+        ul {
+            margin: 0 auto;
+            text-align: center;
+        }
+        li {
+            display: inline-block;
+            vertical-align: top;
+        }
+        body {
+            background-color: black;
+            font-size: 16px;
+            font-weight: 400;
+            text-rendering: optimizeLegibility;
+        }
+        h1 {
+            color: rgba(4, 55, 73, 1);
+            font-family: 'Enriqueta', arial, serif;
+            line-height: 1.25;
+            margin: 0 0 10px;
+            font-size: 40px;
+            font-weight: bold;
+        }
+        h2 {
+            font-family: 'Enriqueta', arial, serif;
+            line-height: 1.25;
+            margin: 0 0 10px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+        td {
+            font-size: small;
+        }
+        .background-image {
+            position: fixed;
+            left: 0;
+            right: 0;
+            z-index: 1;
+            background-image: url(https://image.tmdb.org/t/p/w500/{{images}});
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            -webkit-filter: blur(10px);
+            -moz-filter: blur(10px);
+            -o-filter: blur(10px);
+            -ms-filter: blur(10px);
+            filter: blur(10px);
+            background-attachment: fixed;
+        }
+        .table-title h3 {
+            color: #fafafa;
+            font-size: 10px;
+            font-weight: 400;
+            font-style: normal;
+            font-family: "Roboto", helvetica, arial, sans-serif;
+            text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.1);
+            text-transform: uppercase;
+        }
+        .table-fill {
+            display: inline-block;
+            background: white;
+            border-collapse: collapse;
+            height: 100%;
+            width: 100%;
+            -o-box-shadow: 12px 12px 29px #555;
+            -webkit-box-shadow: 12px 12px 29px #555;
+            box-shadow: 12px 12px 29px #555;
+
+            max-height: 800px;
+            -webkit-box-sizing: content-box;
+            box-sizing: content-box;
+            overflow-y: auto;
+            overflow-x: hidden;
+            border: 1px solid #b7b7b7;
+            -webkit-border-radius: 3px;
+            border-radius: 10px;
+        }
+        .wide {
+            display: inline-block;
+            border: 1px solid #b7b7b7;
+            -webkit-border-radius: 3px;
+            border-radius: 5px;
+            background-color: WhiteSmoke;
+            color: rgba(4, 55, 73, 1);
+            -o-box-shadow: 12px 12px 29px #555;
+            -webkit-box-shadow: 12px 12px 29px #555;
+            box-shadow: 12px 12px 29px #555;
+
+        }
+        .shadow {
+            -o-box-shadow: 12px 12px 29px #555;
+            box-shadow: 12px 12px 29px #555;
+            -webkit-box-shadow: 12px 12px 29px #555;
+            box-shadow: 12px 12px 29px #555;
+        }
+        .wideWatMark {
+            border: 1px solid #b7b7b7;
+            -webkit-border-radius: 3px;
+            border-radius: 5px;
+            background-color: WhiteSmoke;
+            color: rgba(4, 55, 73, 1);
+            -o-box-shadow: 12px 12px 29px #555;
+            box-shadow: 12px 12px 29px #555;
+            -webkit-box-shadow: 12px 12px 29px #555;
+            box-shadow: 12px 12px 29px #555;
+        }
+        .content {
+            position: absolute;
+            left: 0;
+            right: 0;
+            z-index: 9999;
+            margin-left: 20px;
+            margin-right: 20px;
+
+        }
+        .floating {
+            display: inline-block;
+            //border: 3px solid #73AD21;
+        }
+        .formatted {
+            margin-left: 5%;
+            margin-right: 5%;
+            margin-top: 5%;
+        }
+    </style>
+</head>
+<body>
+
+<div class="floating">
+    <div class="content">
+
+        <div class="floating" style= "width: 75%;">
+
+            <div style="width: 100%;" class="wideWatMark floating">
+                <ul><h1><b>{{title}}</b></h1></ul>
+            </div>
+        </div>
+
+        <div class="floating" style= "width: 75%; margin-top: 2%; background-color:rgba(245,245,245, 0.1)">
+
+            <div class="floating formatted" style="width: 30% ; float: left;">
+                <img img width=100% class=shadow src='https://image.tmdb.org/t/p/w500{{poster_path}}'>
+            </div>
+
+            <div class="wide floating formatted" style="width: 50%; float: right">
+                {{#if tagline}}            <p><b>Tagline:</b>          {{tagline}}</p>  {{/if}}
+                {{#if original_language}}            <p><b>Original Language:</b> {{original_language}}</p>  {{/if}}
+                {{#if release_date}}            <p><b>Release Date:</b>      {{release_date}}</p>  {{/if}}
+                {{#if genres}}            <p><b>Genres:</b>          {{#each genres}}{{name}},{{/each}}</p>  {{/if}}
+                {{#if vote_average}}            <p><b>Rate:</b>             {{vote_average}}</p>  {{/if}}
+                {{#if overview}}            <p><b>Overview:</b>         {{overview}}</p>  {{/if}}
+            </div>
+            {{#if video}}
+                <div class="floating embed-responsive embed-responsive-16by9" style="width: 90%; margin: 5%; overflow: hidden" center>
+                    <ul>
+                        <iframe class="embed-responsive-item shadow" src="http://www.youtube.com/embed/{{video}}"></iframe>
+
+                    </ul>
+                </div>
+            {{/if}}
+        </div>
+
+        {{#if cast}}
+        <div class="container floating" style="width: 23% ;float: right; padding-right: 5%; ">
+            <ul>
+                <table class="table-fill table table-striped ">
+                    <thead class="thead-inverse">
+                    <tr>
+                        <th class="text-left">Actor</th>
+                        <th class="text-left">Role</th>
+                    </tr>
+                    </thead>
+                    <tbody class="table-hover">
+                    <tr>
+                    {{#each cast}}
+                        <tr>
+                            <td>{{character}}</td>
+                            <td><p><a href="http://localhost:3000/Actor?actorId={{id}}">{{name}}</a></p></td>
+                        </tr>
+                    {{/each}}
+                    </tbody>
+                </table>
+            </ul>
+        {{/if}}
+    </div>
+    </div>
+    <div class="background-image" no-repeat center></div>
+</div>
+</body>
+</html>
