@@ -4,7 +4,6 @@ const router = express.Router()
 module.exports = router
 
 router.use((req, res, next) => {
-    // res.locals.favourites = favourites
     next()
 })
 
