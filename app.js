@@ -9,11 +9,13 @@ var users = require('./routes/users');
 var app = express();
 var dataRoutes = require('./routes/dataRoutes')
 var userRoutes = require('./routes/userRoutes')
+const hbs = require('hbs')
 
 // view engine setup
 //todo, partials?
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
+hbs.registerPartials(__dirname + '/views')
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
