@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router()
-const service = require('./dataServices')()
+const service = require('./dataServices')
 const url = require('url')
 
 router.get('/MovieDetail', (req, resp, next) => {
