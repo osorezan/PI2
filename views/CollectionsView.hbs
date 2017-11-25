@@ -12,26 +12,22 @@
 </head>
 <body>
 
-<form action="/action_page.php" id="carform">
-    Firstname:<input type="text" name="fname">
-    <input type="submit">
-</form>
-
-
-
-    <div class="form-group">
-        <label for="sel1">Select list (select one):</label>
-        <select class="form-control" id="sel1">
-{{#each collections}}
-    <option>collections.</option>
-{{/each}}
-        </select>
-        <br>
-    </div>
-
-    <button type="button" action="/collection/sel1" class="btn btn-danger">Danger</button>
-
-</form>
-
+<div style="height:800px;">
+    <h2>Collections</h2>
+    <ul>
+        {{#each movieCollections}}
+                <li><p><a href="../MovieCollections">{{name}}</a></p></li>
+        {{/each}}
+        <li><form action="../MovieCollections">
+            Add Collection:<br>
+            <input type="text" name="name">
+            <br>
+            <input type="submit" value="Submit">
+        </form></li>
+    </ul>
+</div>
+<div class="panel col-xs-3">
+    {{> MoviesListView}}
+</div>
 </body>
 </html>

@@ -37,5 +37,9 @@ router.get('', (req, resp, next) => {
     resp.render('SearchMoviesView')
 })
 
+router.get('/MovieCollections', (req, resp, next)=> {
+    resp.render('CollectionsView')
+})
+
 //TODO, rest
 module.exports = router
