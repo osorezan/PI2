@@ -26,7 +26,8 @@ function init(dataSource) {
     const services = {
         getMovies,
         getActorDetails,
-        getMovieDetails
+        getMovieDetails,
+        getMoviesPage: getMovies
     }
     return services
 
@@ -38,25 +39,13 @@ function init(dataSource) {
         })
     }
 
-    function getMovies(name, cb) {
-        //insert %20?
-        //var argsString = Array.prototype.join.call(name, "%20");
-        const path = `https://api.themoviedb.org/3/search/movie?api_key=668c5f272f87669446f01cfcc3ab13f4&query=${name}`;
-        var pg = 1;
-        //reqAsJson(path, cb);
+    function getMovies(page, name, cb){
+        const path = `https://api.themoviedb.org/3/search/movie?api_key=668c5f272f87669446f01cfcc3ab13f4&query=${name}&page=${page}`;
         reqAsJson(path, (err, list) => {
-            if (err) return cb(err)
-            if (pg < list.total_pages)
-                for (; pg < list.total_pages;) {
-                    const pathPage = `https://api.themoviedb.org/3/search/movie?api_key=668c5f272f87669446f01cfcc3ab13f4&query=${name}&page=${++pg}`;
-                    reqAsJson(pathPage, (err, list2) => {
-                        if (err) return cb(err);
-                        list.results = list.results.concat(list2.results)
-                        cb(null, list);
-                    });
-                }
-            else
-                cb(null, list);
+            if (err) return cb(err);
+            page ++;
+            var hasNextPage = (list.total_pages >= page) ? `http://localhost:3000/Movies?name=${name}&page=${page}` : null;
+                cb(null, {list, page, hasNextPage });
         });
     }
 

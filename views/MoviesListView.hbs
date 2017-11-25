@@ -72,7 +72,7 @@
 <div class="container content " center>
     <ol>
         <li>
-{{#each results}}
+{{#each list.results}}
     {{#if poster_path}}
         <a  href="http://localhost:3000/MovieDetail?movieId={{id}}"/><img width='200px' height="280px" src='https://image.tmdb.org/t/p/w500{{poster_path}}'>
     {{else}}
@@ -80,6 +80,13 @@
     {{/if}}
 {{/each}}
         </li>
+
+        <li>
+            {{#if hasNextPage}}
+                <a href={{hasNextPage}}><button type="button" style="position: center; width:200px; height: 280px; margin: 10px; opacity: 0.7;" class="btn btn-danger">Next</button></a>>
+            {{/if}}
+        </li>
+
     </ol>
 </div>
 

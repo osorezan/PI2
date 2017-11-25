@@ -22,7 +22,12 @@ router.get('/Actor', (req, resp, next) => {
 })
 router.get('/Movies', (req, resp, next) => {
     const urlObj = url.parse(req.url, true)
-    service.getMovies(urlObj.query.name, (err, data) => {
+    var page
+    if (typeof(urlObj.query.page) != 'undefined')
+        page = urlObj.query.page;
+    else
+        page = 1;
+    service.getMoviesPage(page, urlObj.query.name, (err, data) => {
     if (err) return next(err)
     resp.render('MoviesListView', data)
 })
