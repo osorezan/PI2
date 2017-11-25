@@ -2,7 +2,6 @@
 
 const Movie = require('../model/Movie')
 const Actor = require('../model/Actor')
-const MovieCollection = require('../model/MovieCollection')
 const RateLimiter = require('request-rate-limiter')
 const limiter = new RateLimiter({
     rate:40,
@@ -14,7 +13,6 @@ const limiter = new RateLimiter({
 
 var movieCache = new Array();
 var actorCache = new Array();
-var movieCollections = new Array();
 
 module.exports = init
 
@@ -29,8 +27,7 @@ function init(dataSource) {
         getMovies,
         getActorDetails,
         getMovieDetails,
-        getMoviesPage: getMovies,
-        getMovieCollections
+        getMoviesPage: getMovies
     }
     return services
 
@@ -48,7 +45,7 @@ function init(dataSource) {
             if (err) return cb(err);
             page ++;
             var hasNextPage = (list.total_pages >= page) ? `http://localhost:3000/Movies?name=${name}&page=${page}` : null;
-                cb(null, {list, page, hasNextPage });
+            cb(null, {list, page, hasNextPage });
         });
     }
 
@@ -94,10 +91,6 @@ function init(dataSource) {
         var m = new Movie(movie, char);
         movieCache[movieId] = m;
         return m;
-    }
-
-    function getMovieCollections(user){
-        //ir buscar Collectionsná base de dados
     }
 
 }
