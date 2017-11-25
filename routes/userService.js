@@ -33,7 +33,7 @@ function authenticate(username, passwd, cb) {
 }
 
 function save(user, cb) {
-    const path = dbUsers + '/' + user.username
+    const path = dbUsers + '/' + user._id
     const options = {
         method: "PUT",
         headers: { "Content-Type": "application/json"},

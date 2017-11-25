@@ -9,14 +9,14 @@ router.use((req, res, next) => {
 
 router.get('/MovieCollections', (req, resp, next) => {
     //const urlObj = url.parse(req.url, true)
+    if(!req.user) return resp.redirect('/login')
     resp.render('CollectionsView', req.user)
 })
 
 router.post('/MovieCollections', (req, res, next) => {
     if(!req.user) return res.redirect('/login')
-    req.user.movieCollections.push({
-        id: req.body.league,
-        caption: req.body.caption
+    req.user.MovieCollections.push({
+        name: req.body.name,
     })
     userService.save(req.user, (err) => {
         if(err) return next(err)
