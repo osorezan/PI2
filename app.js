@@ -10,6 +10,7 @@ var userRoutes = require('./routes/userRoutes')
 const passport = require('passport')
 const session = require('express-session')
 const hbs = require('hbs')
+const collectionRoutes = require('./routes/CollectionsRoutes')
 
 // view engine setup
 //todo, partials?
@@ -27,6 +28,7 @@ app.use(passport.session()) // Obtem da sessão user id -> deserialize(id) -> us
 
 app.use( dataRoutes);
 app.use( userRoutes);
+app.use(collectionRoutes);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

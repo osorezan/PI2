@@ -8,6 +8,11 @@ router.use((req, res, next) => {
     next()
 })
 
+router.get('/MovieCollections', (req, resp, next) => {
+    //const urlObj = url.parse(req.url, true)
+    resp.render('CollectionsView', req.user)
+})
+
 router.post('/MovieCollections', (req, res, next) => {
     if(!req.user) return res.redirect('/login')
     req.user.movieCollections.push({
@@ -16,6 +21,6 @@ router.post('/MovieCollections', (req, res, next) => {
     })
     userService.save(req.user, (err) => {
         if(err) return next(err)
-        res.redirect('/leagues')
+        res.redirect('/MovieCollections')
     })
 })
