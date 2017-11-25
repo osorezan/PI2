@@ -13,12 +13,17 @@
 <body>
 
 <div style="height:800px;">
+    <h2>Collections</h2>
     <ul>
-        <li>Collections</li>
         {{#each movieCollections}}
-                <li>{{name}}</li>
+                <li><p><a href="../MovieCollections">{{name}}</a></p></li>
         {{/each}}
-        <li>Add Collection</li>
+        <li><form action="../MovieCollections">
+            Add Collection:<br>
+            <input type="text" name="name">
+            <br>
+            <input type="submit" value="Submit">
+        </form></li>
     </ul>
 </div>
 <div class="panel col-xs-3">

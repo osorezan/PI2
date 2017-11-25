@@ -3,9 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="6a16943c-81fa-4ede-9d20-4032b73901f6" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.js" afterPath="$PROJECT_DIR$/app.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/CollectionsView.hbs" afterPath="$PROJECT_DIR$/views/CollectionsView.hbs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/SearchMoviesView.hbs" afterPath="$PROJECT_DIR$/views/SearchMoviesView.hbs" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -19,22 +17,18 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="CollectionsView.hbs" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/CollectionsView.hbs">
+      <file leaf-file-name="dataServices.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/routes/dataServices.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="24" column="24" lean-forward="true" selection-start-line="24" selection-start-column="24" selection-end-line="24" selection-end-column="24" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MoviesListView.hbs" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/views/MoviesListView.hbs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="442">
-              <caret line="86" column="19" lean-forward="true" selection-start-line="86" selection-start-column="19" selection-end-line="86" selection-end-column="19" />
-              <folding />
+            <state relative-caret-position="255">
+              <caret line="99" column="8" lean-forward="false" selection-start-line="99" selection-start-column="8" selection-end-line="99" selection-end-column="47" />
+              <folding>
+                <element signature="n#!!block;n#getMovies#0;n#!!block;n#init#0" expanded="false" />
+                <element signature="n#!!block;n#getActorDetails#0;n#!!block;n#init#0" expanded="false" />
+                <element signature="n#!!block;n#cacheActor#0;n#!!block;n#init#0" expanded="false" />
+                <element signature="n#!!block;n#getMovieDetails#0;n#!!block;n#init#0" expanded="false" />
+                <element signature="n#!!block;n#cacheMovie#0;n#!!block;n#init#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -73,8 +67,8 @@
         <option value="$PROJECT_DIR$/routes/dataRoutes.js" />
         <option value="$PROJECT_DIR$/routes/dataServices.js" />
         <option value="$PROJECT_DIR$/views/SearchMoviesView.hbs" />
-        <option value="$PROJECT_DIR$/views/CollectionsView.hbs" />
         <option value="$PROJECT_DIR$/app.js" />
+        <option value="$PROJECT_DIR$/views/CollectionsView.hbs" />
       </list>
     </option>
   </component>
@@ -145,6 +139,11 @@
               <item name="PI2" type="b2602c69:ProjectViewProjectNode" />
               <item name="PI2" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="PI2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="PI2" type="462c0819:PsiDirectoryNode" />
+              <item name="routes" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -195,7 +194,7 @@
       <workItem from="1511361267809" duration="11407000" />
       <workItem from="1511558644151" duration="36000" />
       <workItem from="1511563539778" duration="2389000" />
-      <workItem from="1511622719759" duration="5359000" />
+      <workItem from="1511622719759" duration="7074000" />
     </task>
     <task id="LOCAL-00001" summary="collectionsView">
       <created>1511624351966</created>
@@ -211,11 +210,18 @@
       <option name="project" value="LOCAL" />
       <updated>1511628046993</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="partial views">
+      <created>1511628866243</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1511628866243</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="19191000" />
+    <option name="totallyTimeSpent" value="20906000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -509,14 +515,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/MovieDetailView.hbs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-26">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/ActorView.hbs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
@@ -553,37 +551,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/dataServices.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-340">
-          <caret line="16" column="35" lean-forward="false" selection-start-line="16" selection-start-column="35" selection-end-line="16" selection-end-column="35" />
-          <folding>
-            <element signature="n#!!block;n#getMovies#0;n#!!block;n#init#0" expanded="false" />
-            <element signature="n#!!block;n#getActorDetails#0;n#!!block;n#init#0" expanded="false" />
-            <element signature="n#!!block;n#cacheActor#0;n#!!block;n#init#0" expanded="false" />
-            <element signature="n#!!block;n#getMovieDetails#0;n#!!block;n#init#0" expanded="false" />
-            <element signature="n#!!block;n#cacheMovie#0;n#!!block;n#init#0" expanded="false" />
-            <element signature="n#!!block;n#getMovieCollections#0;n#!!block;n#init#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/dataRoutes.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="41" column="2" lean-forward="true" selection-start-line="41" selection-start-column="2" selection-end-line="41" selection-end-column="2" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/CollectionsView.hbs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="24" column="24" lean-forward="true" selection-start-line="24" selection-start-column="24" selection-end-line="24" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
@@ -594,9 +561,49 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/views/MoviesListView.hbs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
+        <state relative-caret-position="1394">
           <caret line="86" column="19" lean-forward="true" selection-start-line="86" selection-start-column="19" selection-end-line="86" selection-end-column="19" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/CollectionsView.hbs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" column="40" lean-forward="false" selection-start-line="18" selection-start-column="40" selection-end-line="18" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/MovieDetailView.hbs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="181" column="24" lean-forward="true" selection-start-line="181" selection-start-column="24" selection-end-line="181" selection-end-column="24" />
+          <folding>
+            <element signature="n#style#0;n#head#0;n#html#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/dataRoutes.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="41" column="2" lean-forward="true" selection-start-line="41" selection-start-column="2" selection-end-line="41" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/dataServices.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="99" column="8" lean-forward="false" selection-start-line="99" selection-start-column="8" selection-end-line="99" selection-end-column="47" />
+          <folding>
+            <element signature="n#!!block;n#getMovies#0;n#!!block;n#init#0" expanded="false" />
+            <element signature="n#!!block;n#getActorDetails#0;n#!!block;n#init#0" expanded="false" />
+            <element signature="n#!!block;n#cacheActor#0;n#!!block;n#init#0" expanded="false" />
+            <element signature="n#!!block;n#getMovieDetails#0;n#!!block;n#init#0" expanded="false" />
+            <element signature="n#!!block;n#cacheMovie#0;n#!!block;n#init#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
