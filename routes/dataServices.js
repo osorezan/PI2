@@ -25,6 +25,7 @@ function init(dataSource) {
 
     const services = {
         getMovies,
+        getMultipleMovies,
         getActorDetails,
         getMovieDetails,
         getMoviesPage: getMovies
@@ -37,6 +38,24 @@ function init(dataSource) {
             const obj = JSON.parse(res.body)
             cb(null, obj)
         })
+    }
+
+    function getMultipleMovies(movies, cb){
+        var list = new Object();
+        list.results = new Array();
+        var i = 0;
+        for (var i = 0; i < movies.length; i++) {
+            list.results[i] = getMovieDetails(movies[i].id, (err, data) => {
+                if (err)
+                    return err;
+                list.results[i] = data;
+                return data;
+            })
+        }
+
+        list.results = movies;
+
+        cb(null, list)
     }
 
     function getMovies(page, name, cb){

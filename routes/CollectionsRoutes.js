@@ -13,6 +13,20 @@ router.get('/MovieCollections', (req, resp, next) => {
     resp.render('CollectionsView', req.user)
 })
 
+router.get('/MovieCollections/:name', (req, resp, next) => {
+        var name = req.params.name;
+        var list;
+        if(!req.user)
+            return resp.redirect('/login')
+        for (i = 0; i< req.user.MovieCollections.length; i++) {
+            if (req.user.MovieCollections[i].name == name) {
+                list = req.user.MovieCollections[i].list;
+                break;
+            }
+        }
+        resp.render('CollectionsView', {list : list, MovieCollections : req.user.MovieCollections});
+    })
+
 router.post('/MovieCollections', (req, res, next) => {
     if(!req.user) return res.redirect('/login')
     req.user.MovieCollections.push({

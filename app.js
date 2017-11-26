@@ -19,7 +19,7 @@ app.set('view engine', 'hbs');
 hbs.registerPartials(__dirname + '/views')
 
 app.use(bodyParser.urlencoded({ extended: false }))
-//app.use(favicon(path.join(__dirname, 'public', 'supermario.jpg')));
+app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(cookieParser())
 app.use(session({secret: 'keyboard cat', resave: false, saveUninitialized: true }))
@@ -29,6 +29,7 @@ app.use(passport.session()) // Obtem da sessão user id -> deserialize(id) -> us
 app.use( dataRoutes);
 app.use( userRoutes);
 app.use(collectionRoutes);
+var partial = require('express-partial');
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -36,7 +37,7 @@ app.use(function(req, res, next) {
   err.status = 404;
   next(err);
 });
-
+app.use(partial());
 // // catch 404 and forward to error handler
 app.use(function(req, res, next) {
     var err = new Error('Not Found');

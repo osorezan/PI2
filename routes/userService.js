@@ -1,10 +1,10 @@
 const dbUsers = 'http://127.0.0.1:5984/moviedb'
 const request = require('request')
-
+const dataServices = require('./dataServices')()
 module.exports = {
     'find': find,
     'authenticate': authenticate,
-    'save': save
+    'save': save,
 }
 
 function find(username, cb) {
@@ -30,8 +30,8 @@ function authenticate(username, passwd, cb) {
         if(passwd != user.password) return cb(null, null, 'Invalid password')
         cb(null, user)
     })
-}
 
+}
 function save(user, cb) {
     const path = dbUsers + '/' + user._id
     const options = {
