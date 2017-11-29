@@ -11,17 +11,14 @@
 
 </head>
 <body>
-<div style="height: 100%; width: 70%" >
-    {{> MoviesListView}}
-</div>
 
-<div style="height:100%; width: 110px" >
+<div style="height:20%; width: 100%">
     <h2>Collections</h2>
-    <ul style="height:100%; width:110px">
+    <ul>
         {{#each MovieCollections}}
-            <li style="height:100%; width:110px"><p><a href="../MovieCollections/{{name}}">{{name}}</a></p></li>
+                <li><p><a href="../MovieCollections/{{name}}">{{name}}</a></p></li>
         {{/each}}
-        <li style="height:100%; width: 20%"><form  style="height:100%; width: 20%"action="../MovieCollections" method="post">
+        <li><form action="../MovieCollections" method="post">
             Add Collection:<br>
             <input type="text" name="name">
             <br>
@@ -29,6 +26,8 @@
         </form></li>
     </ul>
 </div>
-
+<div style="height: 70%" class="panel col-xs-3">
+    {{> MoviesListView}}
+</div>
 </body>
 </html>
