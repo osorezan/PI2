@@ -1,24 +1,24 @@
 <!doctype html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>COIMA.com </title>
-    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet"
+          href="css/bootstrap.min.css">
     <link rel="stylesheet" href="style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"
+          integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ"
+          crossorigin="anonymous">
     <style type="text/css">
-
-
         .content {
             position: absolute;
             z-index: 9999;
             margin-left: 20px;
             margin-right: 20px;
             width: 100%;
-
         }
-
         .background-image {
             position: fixed;
             left: 0;
@@ -35,62 +35,49 @@
         //filter: blur(5px);
             repeat: no-repeat;
         }
-
         div {
             width: 1500px;
             margin: 0 auto;
             overflow: auto;
         }
-
         ul {
             list-style-type: none;
         }
-
         li img {
             float: left;
             margin: 10px;
             border: 5px solid #fff;
-
             -webkit-transition: box-shadow 0.5s ease;
             -o-transition: box-shadow 0.5s ease;
             transition: box-shadow 0.5s ease;
         }
-
         li img:hover {
-            -webkit-box-shadow: 0px 0px 7px rgba(255,255,255,0.9);
-            box-shadow: 0px 0px 7px rgba(255,255,255,0.9);
+            -webkit-box-shadow: 0px 0px 7px rgba(255, 255, 255, 0.9);
+            box-shadow: 0px 0px 7px rgba(255, 255, 255, 0.9);
         }
-
-        .body
-        {
+        .body {
             display: inline-block;
         }
-
     </style>
 </head>
-<body>
-<div class="container content " center>
+
+<body style="display: inline-block; margin-top: 0px; padding-top: 0">
+<div class="container content " style="margin-top: 0px; padding-top: 0"
+     center>
     <ol>
-        <li>
-{{#each list.results}}
-    {{#if poster_path}}
-        <a  href="http://localhost:3000/MovieDetail?movieId={{id}}"/><img width='200px' height="280px" src='https://image.tmdb.org/t/p/w500{{poster_path}}'>
-    {{else}}
-        <a  href="http://localhost:3000/MovieDetail?movieId={{id}}"/><img width='200px' height="280px" src='https://pbs.twimg.com/profile_images/600060188872155136/st4Sp6Aw.jpg'>
-    {{/if}}
-{{/each}}
-        </li>
-
-        <li>
-            {{#if hasNextPage}}
-                <a href={{hasNextPage}}><button type="button" style="position: center; width:200px; height: 280px; margin: 10px; opacity: 0.7;" class="btn btn-danger">Next</button></a>>
-            {{/if}}
-        </li>
-
+        <li> {{#each list.results}} {{#if poster_path}}
+            <a href="http://localhost:3000/MovieDetail?movieId={{id}}"
+            /><img width='200px' height="280px" src='https://image.tmdb.org/t/p/w500{{poster_path}}'>				{{else}} <a href="http://localhost:3000/MovieDetail?movieId={{id}}"
+        /><img width='200px' height="280px" src='https://pbs.twimg.com/profile_images/600060188872155136/st4Sp6Aw.jpg'>				{{/if}} {{/each}} </li>
+        <li> {{#if hasNextPage}}
+            <a href={{hasNextPage}}>
+                <button type="button" style="position: center; width:200px; height: 280px; margin: 10px; opacity: 0.7;"
+                        class="btn btn-danger">Next</button>
+            </a> {{/if}} </li>
     </ol>
 </div>
-
-<div class="background-image"  no-repeat center ></div>
-
+<div class="background-image" no-repeat
+     center></div>
 </body>
+
 </html>

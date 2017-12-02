@@ -15,6 +15,8 @@ router.post('/login', (req, res, next) => {
         if(info) return next(new Error(info))
         req.logIn(user, (err) => {
             if(err) return next(err)
+            //TODO, ask if this is the right way to pass user data
+            res.cookie(user, req.user)
             res.redirect('/')
         })
     })

@@ -1,13 +1,15 @@
 <!doctype html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>COIMA.com</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"
-          integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+          integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ"
+          crossorigin="anonymous">
     <style type="text/css">
-
         ul {
             margin: 0 auto;
             text-align: center;
@@ -45,7 +47,7 @@
             left: 0;
             right: 0;
             z-index: 1;
-            background-image: url(https://image.tmdb.org/t/p/w500/{{images}});
+            background-image: url(https://image.tmdb.org/t/p/w500/{{data.images}});
             width: 100%;
             height: 100%;
             background-size: cover;
@@ -74,7 +76,6 @@
             -o-box-shadow: 12px 12px 29px #555;
             -webkit-box-shadow: 12px 12px 29px #555;
             box-shadow: 12px 12px 29px #555;
-
             max-height: 800px;
             -webkit-box-sizing: content-box;
             box-sizing: content-box;
@@ -94,7 +95,6 @@
             -o-box-shadow: 12px 12px 29px #555;
             -webkit-box-shadow: 12px 12px 29px #555;
             box-shadow: 12px 12px 29px #555;
-
         }
         .shadow {
             -o-box-shadow: 12px 12px 29px #555;
@@ -120,11 +120,10 @@
             z-index: 9999;
             margin-left: 20px;
             margin-right: 20px;
-
         }
         .floating {
             display: inline-block;
-            //border: 3px solid #73AD21;
+        //border: 3px solid #73AD21;
         }
         .formatted {
             margin-left: 5%;
@@ -133,67 +132,86 @@
         }
     </style>
 </head>
-<body>
 
+<body>
 <div class="floating">
     <div class="content">
-
-        <div class="floating" style= "width: 75%;">
-
+        <div class="floating" style="width: 75%;">
             <div style="width: 100%;" class="wideWatMark floating">
-                <ul><h1><b>{{title}}</b></h1></ul>
+                <ul>
+                    <h1><b>{{data.title}}</b></h1>
+                </ul>
             </div>
         </div>
-
-        <div class="floating" style= "width: 75%; margin-top: 2%; background-color:rgba(245,245,245, 0.1)">
-
+        <div class="floating" style="width: 75%; margin-top: 2%; background-color:rgba(245,245,245, 0.1)">
             <div class="floating formatted" style="width: 30% ; float: left;">
-                <img img width=100% class=shadow src='https://image.tmdb.org/t/p/w500{{poster_path}}'>
+                <img img width=100% class=shadow src='https://image.tmdb.org/t/p/w500{{data.poster_path}}'>					</div>
+            <div class="wide floating formatted"
+                 style="width: 50%; float: right"> {{#if data.tagline}}
+                <p><b>Tagline:</b> {{data.tagline}}</p>
+            {{/if}} {{#if data.original_language}}
+                <p><b>Original Language:</b> {{data.original_language}}</p>
+            {{/if}} {{#if data.release_date}}
+                <p><b>Release Date:</b> {{data.release_date}}</p>
+            {{/if}} {{#if data.genres}}
+                <p><b>Genres:</b> {{#each data.genres}}{{name}},{{/each}}</p>
+            {{/if}} {{#if data.vote_average}}
+                <p><b>Rate:</b> {{data.vote_average}}</p>
+            {{/if}} {{#if data.overview}}
+                <p><b>Overview:</b> {{data.overview}}</p>
+            {{/if}} </div> {{#if data.video}}
+            <div
+                    class="floating embed-responsive embed-responsive-16by9"
+                    style="width: 90%; margin: 5%; overflow: hidden"
+                    center>
+                <ul>
+                    <iframe class="embed-responsive-item shadow"
+                            src="http://www.youtube.com/embed/{{data.video}}"></iframe>
+                </ul>
+            </div> {{/if}} </div> {{#if data.cast}}
+    <div
+            class="container floating" style="width: 23% ;float: right; padding-right: 5%; ">
+        <iframe style="display:none" name="csrf-frame"></iframe>
+        <form action="" method="post"
+              target="csrf-frame" name="form1">
+            <div class="form-group" name="formgroup">
+                <select class="form-control" id="collection"
+                        name="collection"> {{#each MovieCollections}}
+                    <option>{{name}}</option> {{/each}} </select>
             </div>
-
-            <div class="wide floating formatted" style="width: 50%; float: right">
-                {{#if tagline}}            <p><b>Tagline:</b>          {{tagline}}</p>  {{/if}}
-                {{#if original_language}}            <p><b>Original Language:</b> {{original_language}}</p>  {{/if}}
-                {{#if release_date}}            <p><b>Release Date:</b>      {{release_date}}</p>  {{/if}}
-                {{#if genres}}            <p><b>Genres:</b>          {{#each genres}}{{name}},{{/each}}</p>  {{/if}}
-                {{#if vote_average}}            <p><b>Rate:</b>             {{vote_average}}</p>  {{/if}}
-                {{#if overview}}            <p><b>Overview:</b>         {{overview}}</p>  {{/if}}
-            </div>
-            {{#if video}}
-                <div class="floating embed-responsive embed-responsive-16by9" style="width: 90%; margin: 5%; overflow: hidden" center>
-                    <ul>
-                        <iframe class="embed-responsive-item shadow" src="http://www.youtube.com/embed/{{video}}"></iframe>
-
-                    </ul>
-                </div>
-            {{/if}}
-        </div>
-
-        {{#if cast}}
-        <div class="container floating" style="width: 23% ;float: right; padding-right: 5%; ">
-            <ul>
-                <table class="table-fill table table-striped ">
-                    <thead class="thead-inverse">
+            <input type="hidden" name="id" id="id"
+                   value={{data.id}}>
+            <input type="hidden" name="poster_path"
+                   id="poster_path" value={{data.poster_path}}>
+            <button type="submit" onclick="function getLink() {
+                    document.form1.action = `../MovieCollections/Add/${document.getElementById('collection').value}`;
+                }
+                getLink()" class="btn btn-default"
+                    style="margin-bottom: 5%">ADD</button>
+        </form>
+        <ul>
+            <table class="table-fill table table-striped">
+                <thead class="thead-inverse">
+                <tr>
+                    <th class="text-left">Actor</th>
+                    <th class="text-left">Role</th>
+                </tr>
+                </thead>
+                <tbody class="table-hover">
+                <tr> {{#each data.cast}}
                     <tr>
-                        <th class="text-left">Actor</th>
-                        <th class="text-left">Role</th>
-                    </tr>
-                    </thead>
-                    <tbody class="table-hover">
-                    <tr>
-                    {{#each cast}}
-                        <tr>
-                            <td>{{character}}</td>
-                            <td><p><a href="http://localhost:3000/Actor?actorId={{id}}">{{name}}</a></p></td>
-                        </tr>
-                    {{/each}}
-                    </tbody>
-                </table>
-            </ul>
-        {{/if}}
+                        <td>{{character}}</td>
+                        <td>
+                            <p><a href="http://localhost:3000/Actor?actorId={{id}}">{{name}}</a>
+                            </p>
+                        </td>
+                    </tr> {{/each}} </tbody>
+            </table>
+        </ul> {{/if}} </div>
     </div>
-    </div>
-    <div class="background-image" no-repeat center></div>
+    <div class="background-image" no-repeat
+         center></div>
 </div>
 </body>
+
 </html>

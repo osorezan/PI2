@@ -1,13 +1,15 @@
 <!doctype html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>COIMA.com</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"
-          integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+          integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ"
+          crossorigin="anonymous">
     <style type="text/css">
-
         ul {
             margin: 0 auto;
             text-align: center;
@@ -69,7 +71,6 @@
             -o-box-shadow: 12px 12px 29px #555;
             -webkit-box-shadow: 12px 12px 29px #555;
             box-shadow: 12px 12px 29px #555;
-
             max-height: 800px;
             -webkit-box-sizing: content-box;
             box-sizing: content-box;
@@ -89,7 +90,6 @@
             -o-box-shadow: 12px 12px 29px #555;
             -webkit-box-shadow: 12px 12px 29px #555;
             box-shadow: 12px 12px 29px #555;
-
         }
         .shadow {
             -o-box-shadow: 12px 12px 29px #555;
@@ -115,7 +115,6 @@
             z-index: 9999;
             margin-left: 20px;
             margin-right: 20px;
-
         }
         .floating {
             display: inline-block;
@@ -127,60 +126,59 @@
             margin-top: 5%;
         }
     </style>
-
 </head>
+
 <body>
 <div class="floating">
-
     <div class="content">
-
         <div class="floating" style="width: 75%; margin: 20px">
-
             <div style="width: 100%;" class="wideWatMark floating">
-                <ul><h1><b>{{name}}</b></h1></ul>
+                <ul>
+                    <h1><b>{{name}}</b></h1> </ul>
             </div>
         </div>
-
         <div class="floating" style="width: 75%; margin-top: 2%; background-color:rgba(245,245,245, 0.1)">
-
             <div class="floating formatted" style="width: 30% ; float: left;">
-                <img width='100%' class="shadow" src='https://image.tmdb.org/t/p/w500{{profile_path}}'/>
-            </div>
-
-            <div class="wide floating formatted" style=" margin-bottom: 5%; width: 50%; float: right">
-                {{#if birthday}}                <p><b>Birthday:</b> {{birthday}}</p>  {{/if}}
-                {{#if deathday}}                <p><b>Deathday:</b> {{deathday}}</p>  {{/if}}
-                {{#if place_of_birth}}                <p><b>Place Of Birth:</b> {{place_of_birth}}</p>  {{/if}}
-                {{#if homepage}}                <p><b>Homepage:</b> {{homepage}}</p>  {{/if}}
-                {{#if biography}}                <p><b>Biography:</b> {{biography}}</p>  {{/if}}
-            </div>
-
+                <img width='100%' class="shadow" src='https://image.tmdb.org/t/p/w500{{profile_path}}'
+                /> </div>
+            <div class="wide floating formatted"
+                 style=" margin-bottom: 5%; width: 50%; float: right">
+                {{#if birthday}}
+                    <p><b>Birthday:</b> {{birthday}}</p> {{/if}}
+                {{#if deathday}}
+                    <p><b>Deathday:</b> {{deathday}}</p> {{/if}}
+                {{#if place_of_birth}}
+                    <p><b>Place Of Birth:</b> {{place_of_birth}}</p>
+                {{/if}} {{#if homepage}}
+                <p><b>Homepage:</b> {{homepage}}</p> {{/if}}
+                {{#if biography}}
+                    <p><b>Biography:</b> {{biography}}</p>
+                {{/if}} </div>
         </div>
-
         <div class="container floating" style="width: 23% ;float: right; padding-right: 5%; ">
-        <ul>
-            <table class=" table-fill table table-striped ">
-        <thead class="thead-inverse">
-        <tr>
-            <th class="text-left">Movie</th>
-            <th class="text-left">Character</th>
-        </tr>
-        </thead>
-        <tbody class="table-hover">
-        <tr>
-        {{#each cast}}
-            <tr>
-                <td><p><a href="http://localhost:3000/MovieDetail?movieId={{id}}">{{title}}</a></p></td>
-                <td>{{character}}</td>
-            </tr>
-        {{/each}}
-        </tbody>
-        </table>
-
-        </ul>
-    </div>
+            <ul>
+                <table class=" table-fill table table-striped ">
+                    <thead class="thead-inverse">
+                    <tr>
+                        <th class="text-left">Movie</th>
+                        <th class="text-left">Character</th>
+                    </tr>
+                    </thead>
+                    <tbody class="table-hover">
+                    <tr> {{#each cast}}
+                        <tr>
+                            <td>
+                                <p><a href="http://localhost:3000/MovieDetail?movieId={{id}}">{{title}}</a>											</p>
+                            </td>
+                            <td>{{character}}</td>
+                        </tr> {{/each}} </tbody>
+                </table>
+            </ul>
+        </div>
     </div>>
-<div class="background-image" no-repeat center></div>
+    <div class="background-image" no-repeat
+         center></div>
 </div>
 </body>
+
 </html>

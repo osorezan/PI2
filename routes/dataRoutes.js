@@ -1,6 +1,7 @@
 const express = require('express')
 const router = express.Router()
 const service = require('./dataServices')()
+const userservice = require('./userService')
 const url = require('url')
 
 router.get('/MovieDetail', (req, resp, next) => {
@@ -8,8 +9,13 @@ router.get('/MovieDetail', (req, resp, next) => {
     const urlObj = url.parse(req.url, true)
 
     service.getMovieDetails(urlObj.query.movieId,(err, data) => {
-        if(err) return next(err)
-        resp.render('MovieDetailView', data)
+        if (err) return next(err)
+        if (req.user){
+            resp.user = req.user;
+            resp.render('MovieDetailView', {data : data, MovieCollections: resp.user.MovieCollections})
+    }
+       else resp.render('MovieDetailView', {data : data})
+
     })
 })
 router.get('/Actor', (req, resp, next) => {

@@ -30,7 +30,6 @@ function authenticate(username, passwd, cb) {
         if(passwd != user.password) return cb(null, null, 'Invalid password')
         cb(null, user)
     })
-
 }
 function save(user, cb) {
     const path = dbUsers + '/' + user._id
